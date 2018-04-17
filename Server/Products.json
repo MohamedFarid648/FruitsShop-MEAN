@@ -1,0 +1,7 @@
+[{"Name":"Banana","Price":"50","Id":1,"Description":"Desc1","Quantity":4,"imgUrl":"https://homepages.cae.wisc.edu/~ece533/images/fruits.png"},
+{"Name":"apples","Price":"40","Id":2,"Description":"Desc2","Quantity":4,"imgUrl":"https://homepages.cae.wisc.edu/~ece533/images/fruits.png"},
+{"Name":"orange","Price":"30","Id":3,"Description":"Desc3","Quantity":4,"imgUrl":"https://homepages.cae.wisc.edu/~ece533/images/fruits.png"},
+{"Name":"lemon","Price":"10","Id":4,"Description":"Desc4","Quantity":4,"imgUrl":"https://homepages.cae.wisc.edu/~ece533/images/fruits.png"},
+{"Name":"pear","Price":"50","Id":5,"Description":"Desc5","Quantity":4,"imgUrl":"https://homepages.cae.wisc.edu/~ece533/images/fruits.png"},
+{"Name":"strawperry","Price":"50","Id":6,"Description":"Desc6","Quantity":4,"imgUrl":"https://homepages.cae.wisc.edu/~ece533/images/fruits.png"},
+{"Name":"grape","Price":"50","Id":7,"Description":"Desc7","Quantity":4,"imgUrl":"https://homepages.cae.wisc.edu/~ece533/images/fruits.png"}]
