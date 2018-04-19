@@ -3,6 +3,8 @@ import {MyFruit} from '../my-fruit';
 
 import { Component, OnInit } from '@angular/core';
 import{Http} from '@angular/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -10,32 +12,36 @@ import{Http} from '@angular/http';
 })
 export class AddProductComponent implements OnInit {
 public MyFruitObj:MyFruit;
-  constructor(private AddFruitService:Http) { 
+  constructor(private AddFruitService:Http,private RouteUrl:Router) { 
 
-     this.MyFruitObj=new MyFruit();
 
   }
 
   ngOnInit() {
   }
 SubmitForm(ProductData){
-  //debugger;
- this.MyFruitObj.Id=ProductData.Id;
- this.MyFruitObj.Name=  ProductData.Name;
- this.MyFruitObj.Description=ProductData.Description;
- this.MyFruitObj.Price=ProductData.Price;
- this.MyFruitObj.Quantity=ProductData.Quantity;
- this.MyFruitObj.imgUrl=ProductData.imgUrl;
- this.AddFruitService.post("http://localhost:7000/AddProduct",this.MyFruitObj).
- map(function(success){
-   debugger;
-   success.status;
- console.log("Success");
- }
+  debugger;
+  ProductData.imgUrl="https://homepages.cae.wisc.edu/~ece533/images/fruits.png";
+    
+  /*if(!Number(ProductData.Id))
+        ProductData.Id=1;
+  if(!Number(ProductData.Price))
+        ProductData.Price=1;
+  if(!Number(ProductData.Quantity))
+        ProductData.Quantity=1;*/
+  this.MyFruitObj=new MyFruit(parseInt(ProductData.Id),ProductData.Name,parseInt(ProductData.Price),ProductData.Description,parseInt(ProductData.Quantity),ProductData.imgUrl);
+
+ this.AddFruitService.post("http://localhost:7000/AddProduct",this.MyFruitObj).subscribe(res=>{
+   //debugger;
+   console.log(res.json());
+   if(res.ok)
+   alert("Success Adding Product ^_^");
+ },error=>{
+console.log(error);
+
+ });
  
- 
- );
- 
+   //this.RouteUrl.navigateByUrl("/Fruits");
 
  
 
