@@ -10,7 +10,7 @@ import{Http} from '@angular/http';
 })
 export class FruitsComponent implements OnInit {
 
-IsLoaded=false;
+IsLoaded=false;x:number;
 public Clients:Array<any>=[]
 public Fruits:Array<any>=[]
 public MyFruitObj:MyFruit;
