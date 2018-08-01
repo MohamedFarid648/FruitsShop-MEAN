@@ -4,10 +4,10 @@
                         <div class="col-12" >
                         <div class="col-6 col-md-3" *ngFor='let Fruit of Fruits;  index as i' style="float:left;">
                               <img src='{{Fruit.imgUrl}}' class="img-fluid" width="100" height="100"/>
-                              <b>{{Fruit.Name}} ||  {{Fruit.Id}}</b> <br>
+                              <b [ngClass]="{'evenClass':i%2===0,'oddClass':i%2 !==0}" >{{Fruit.Name}} ||  {{Fruit.Id}}</b> <br>
                               <div class="col-6 text-white">  
                                <input type="button" class="btn btn-info" data-toggle="modal" 
-                               [attr.data-target]="'#MyUpdateForm'+i" value="Update"/>|
+                               [attr.data-target]="'#MyUpdateForm'+i" value="Update"      [ngStyle]="{backgroundColor:i%2===0?'skyblue':'green'}"/>|
                               <input type="button" class="btn btn-danger"  (click)="DeleteButton(Fruit.Id)"  
                               value="Delete Buton"/>
                              

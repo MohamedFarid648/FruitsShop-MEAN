@@ -12,6 +12,7 @@ import { FruitsComponent } from './fruits/fruits.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { MyDirectiveDirective } from './Directives/my-directive.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     FruitsComponent,
     ClientsComponent,
     ClientInfoComponent,
-    AddProductComponent
+    AddProductComponent,
+    MyDirectiveDirective
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

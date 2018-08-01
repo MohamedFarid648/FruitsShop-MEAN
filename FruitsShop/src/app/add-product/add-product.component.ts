@@ -1,5 +1,6 @@
 import 'rxjs/add/operator/map';
-import {MyFruit} from '../my-fruit';
+//import {MyFruit} from '../Models/my-fruit';
+import {MyFruit} from '../Models/my-fruit';
 
 import { Component, OnInit } from '@angular/core';
 import{Http} from '@angular/http';
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-public MyFruitObj:MyFruit;
+  public MyFruitObj:MyFruit;
   constructor(private AddFruitService:Http,private RouteUrl:Router) { 
 
 
@@ -30,7 +31,7 @@ SubmitForm(ProductData){
   if(!Number(ProductData.Quantity))
         ProductData.Quantity=1;*/
   this.MyFruitObj=new MyFruit(parseInt(ProductData.Id),ProductData.Name,parseInt(ProductData.Price),ProductData.Description,parseInt(ProductData.Quantity),ProductData.imgUrl);
-
+ 
  this.AddFruitService.post("http://localhost:7000/AddProduct",this.MyFruitObj).subscribe(res=>{
    //debugger;
    console.log(res.json());

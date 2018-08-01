@@ -1,12 +1,14 @@
 import 'rxjs/add/operator/map';
-import {MyFruit} from '../my-fruit';
+import {MyFruit} from '../Models/my-fruit';
 
 import { Component, OnInit } from '@angular/core';
 import{Http} from '@angular/http';
 @Component({
   selector: 'app-fruits',
   templateUrl: './fruits.component.html',
-  styleUrls: ['./fruits.component.css']
+  styleUrls: ['./fruits.component.css'],
+  styles:['.evenClass{background-color:skyblue}','.oddClass{background-color:green}']
+
 })
 export class FruitsComponent implements OnInit {
 

@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer-component.component.css']
 })
 export class FooterComponentComponent implements OnInit {
+  color:string;
+  constructor() { 
 
-  constructor() { }
+
+    this.color="red";
+  }
 
   ngOnInit() {
   }
 
+
+  paragraphClicked(event){
+
+    console.log("ddd")
+    debugger;
+  }
 }
