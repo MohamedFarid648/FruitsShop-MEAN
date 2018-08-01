@@ -17,9 +17,8 @@ export class FooterComponentComponent implements OnInit {
   }
 
 
-  paragraphClicked(event){
+  paragraphClicked(messageFromDirective:string){
 
-    console.log("ddd")
-    debugger;
+    console.log(messageFromDirective)
   }
 }
