@@ -5,6 +5,7 @@ import {MyFruit} from '../Models/my-fruit';
 import { Component, OnInit } from '@angular/core';
 import{Http} from '@angular/http';
 import { Router } from '@angular/router';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-add-product',
@@ -21,7 +22,6 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
   }
 SubmitForm(ProductData){
-  debugger;
   ProductData.imgUrl="https://homepages.cae.wisc.edu/~ece533/images/fruits.png";
     
   /*if(!Number(ProductData.Id))
@@ -31,8 +31,10 @@ SubmitForm(ProductData){
   if(!Number(ProductData.Quantity))
         ProductData.Quantity=1;*/
   this.MyFruitObj=new MyFruit(parseInt(ProductData.Id),ProductData.Name,parseInt(ProductData.Price),ProductData.Description,parseInt(ProductData.Quantity),ProductData.imgUrl);
- 
- this.AddFruitService.post("http://localhost:7000/AddProduct",this.MyFruitObj).subscribe(res=>{
+  const path=environment.addProductUrl;
+ console.log(`AddProductPath is ${path}`);
+
+  this.AddFruitService.post(path,this.MyFruitObj).subscribe(res=>{
    //debugger;
    console.log(res.json());
    if(res.ok)

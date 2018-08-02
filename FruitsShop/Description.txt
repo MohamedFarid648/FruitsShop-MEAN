@@ -1,0 +1,22 @@
+1. npm install -g angular-http-server
+angular-http-server -p 9000
+https://www.npmjs.com/package/angular-http-server
+
+
+or 
+npm i lite-server -g
+lite-server --baseDir="dist"
+
+https://stackoverflow.com/questions/50317997/http-server-p-8080-does-not-serve-my-angular-application-whereas-ng-serve-does/50318098
+
+
+
+2.
+Change api between production and development :
+
+https://stackoverflow.com/questions/43193049/app-settings-the-angular-way
+(Second Solution)
+
+
+
+https://blogs.msdn.microsoft.com/premier_developer/2018/03/01/angular-how-to-editable-config-files/

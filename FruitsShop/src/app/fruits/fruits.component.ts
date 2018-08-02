@@ -3,6 +3,7 @@ import {MyFruit} from '../Models/my-fruit';
 
 import { Component, OnInit } from '@angular/core';
 import{Http} from '@angular/http';
+import {environment} from '../../environments/environment';
 @Component({
   selector: 'app-fruits',
   templateUrl: './fruits.component.html',
@@ -13,20 +14,25 @@ import{Http} from '@angular/http';
 export class FruitsComponent implements OnInit {
 
 IsLoaded=false;x:number;
-public Clients:Array<any>=[]
+public Clients:Array<any> | null | undefined=[];
 public Fruits:Array<any>=[]
 public MyFruitObj:MyFruit;
 public IsUpdated:boolean=false;
 public Counter:number=0;
-constructor(private FruitsServiceObj:Http) { }
+constructor(private FruitsServiceObj:Http) { 
+
+}
 
   ngOnInit() {
 
-this.FruitsServiceObj.get("http://localhost:7000/ListProducts").
+const ListProductPath=environment.listProductUrl;
+console.log(`ListProductPath is ${ListProductPath}`);
 
+this.FruitsServiceObj.get(ListProductPath).
+     
       map((response) => response.json()).
       subscribe( (data) => {this.displaydata(data); })
-   }
+}
   
   
    displaydata(data) {this.Fruits = data;}
@@ -57,8 +63,9 @@ SaveProduct (ProductData){
   if(!Number(ProductData.Quantity))
         ProductData.Quantity=1;*/
   this.MyFruitObj=new MyFruit(parseInt(ProductData.Id),ProductData.Name,parseInt(ProductData.Price),ProductData.Description,parseInt(ProductData.Quantity),ProductData.imgUrl);
-
- this.FruitsServiceObj.put('http://localhost:7000/UpdateProduct/'+ProductData.Id,this.MyFruitObj).subscribe(res=>{
+  const UpdatePath=environment.updateProductUrl;
+  console.log(`UpdatePath is ${UpdatePath}`);
+  this.FruitsServiceObj.put(UpdatePath+ProductData.Id,this.MyFruitObj).subscribe(res=>{
    debugger;
    console.log(res.json());
    if(res.ok)
@@ -83,8 +90,10 @@ DeleteButton(id){
   
   console.log("id:"+id);
   let Obj={"Id":id};
+  const DeletePath=environment.updateProductUrl;
+  console.log(`DeletePath is ${DeletePath}`);
  this.FruitsServiceObj.
- delete('http://localhost:7000/DeleteProduct/'+id).subscribe(res=>{
+ delete(DeletePath+id).subscribe(res=>{
    console.log(res.json());
    if(res.ok)
    alert("success deleting ");
