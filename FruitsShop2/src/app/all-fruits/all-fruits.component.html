@@ -1,0 +1,8 @@
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let Fruit of Fruits;  index as i">
+     <a  href="EditFruit/{{Fruit.Id}}">{{Fruit.Name}}</a>
+     
+      <span class="badge badge-primary badge-pill">{{Fruit.Quantity}}</span>
+    </li>
+
+  </ul>

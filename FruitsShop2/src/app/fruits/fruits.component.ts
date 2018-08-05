@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 import {MyFruit} from '../Models/my-fruit';
 
 import { Component, OnInit } from '@angular/core';
@@ -30,7 +30,7 @@ console.log(`ListProductPath is ${ListProductPath}`);
 
 this.FruitsServiceObj.get(ListProductPath).
      
-      map((response) => response.json()).
+     // map((response) => response.json()).
       subscribe( (data) => {this.displaydata(data); })
 }
   
@@ -91,7 +91,7 @@ DeleteButton(id){
   
   console.log("id:"+id);
   let Obj={"Id":id};
-  const DeletePath=environment.updateProductUrl;
+  const DeletePath=environment.deleteProductUrl;
   console.log(`DeletePath is ${DeletePath}`);
  this.FruitsServiceObj.
  delete(DeletePath+id).subscribe(res=>{

@@ -1,0 +1,10 @@
+
+
+       <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let Client of Clients;  index as i">
+            {{Client.Name}}
+             
+              <span class="badge badge-primary badge-pill">{{Client.Products.length}}</span>
+            </li>
+        
+          </ul>

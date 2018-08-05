@@ -20,3 +20,9 @@ https://stackoverflow.com/questions/43193049/app-settings-the-angular-way
 
 
 https://blogs.msdn.microsoft.com/premier_developer/2018/03/01/angular-how-to-editable-config-files/
+
+
+
+3. Parameters between Components
+
+   https://alligator.io/angular/query-parameters/
