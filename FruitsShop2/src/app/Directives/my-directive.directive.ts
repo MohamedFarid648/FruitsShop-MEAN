@@ -13,7 +13,8 @@ export class MyDirectiveDirective {
 
 
     ef.nativeElement.innerText+="From Directive";
-    this.setColor("skyblue");
+    this.ef.nativeElement.style.textAlign="center";
+    this.setColor("");
 
   }
   @HostListener('mouseover') 
