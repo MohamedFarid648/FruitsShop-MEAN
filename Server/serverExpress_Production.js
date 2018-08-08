@@ -16,7 +16,7 @@ instead of writing res.set({'Access-Control-Allow-Original':'*'})
 var MyJSONobj=[];
 
 //1.Listen
-MyApp.listen(5200,function(){
+MyApp.listen(7000,function(){
 	
 	console.log("Start Listening");
 })
@@ -137,7 +137,7 @@ MyApp.use(bodyParser.json());
 		res.end();
 	})
 
-	//3.3 Delete Product
+	//4.3 Update Product
 	
 	MyApp.put("/UpdateProduct/:id",function(req,res){
     console.log("params"+req.params.id)
@@ -172,3 +172,27 @@ MyApp.use(bodyParser.json());
 
 		res.end();
 	})
+
+
+	//4.5
+	MyApp.get("/getProduct/:id",function(req,res){
+		console.log("params"+req.params.id)
+		console.log("body.Name::"+req.body.Name)
+		
+	
+	
+			//First:Get All data 
+		    let data= MyFile.readFileSync("./Products.json");
+			MyJSONobj=JSON.parse(data);
+	        let product={};   
+			for(let i=0;i<MyJSONobj.length;i++){
+				 if(MyJSONobj[i].Id==req.params.id)
+				    {
+						product=MyJSONobj[i];
+					}
+			}
+
+			
+			res.send(JSON.stringify(product));	
+			res.end();
+		})

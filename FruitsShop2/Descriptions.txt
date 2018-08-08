@@ -1,0 +1,20 @@
+Add bootstrap , jquery :
+https://medium.com/@davembush/adding-css-and-javascript-to-an-angular-cli-project-2b843a8283f3
+
+    npm install bootstrap --save-dev
+    Bootstrap will also need jQuery installed so we will add that next.
+
+    npm install jquery --save-dev
+
+
+    angular.json:
+    "styles": [
+        "node_modules/bootstrap/dist/css/bootstrap.css",
+        "styles.css"
+    ],
+    "scripts": [
+        "node_modules/jquery/dist/jquery.js",
+        "node_modules/bootstrap/dist/js/bootstrap.js"
+    ],
+
+

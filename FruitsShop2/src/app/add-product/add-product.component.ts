@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import{HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 import {environment} from '../../environments/environment';
+import { FruitsService } from '../Services/fruits.service';
 
 @Component({
   selector: 'app-add-product',
@@ -13,7 +14,7 @@ import {environment} from '../../environments/environment';
 })
 export class AddProductComponent implements OnInit {
   public MyFruitObj:MyFruit;
-  constructor(private AddFruitService:HttpClient,private RouteUrl:Router) { 
+  constructor(private AddFruitService:FruitsService,private RouteUrl:Router) { 
 
 
   }
@@ -33,7 +34,7 @@ SubmitForm(ProductData){
   const path=environment.addProductUrl;
  console.log(`AddProductPath is ${path}`);
 
-  this.AddFruitService.post(path,this.MyFruitObj).subscribe(res=>{
+  this.AddFruitService.addFruit(path,this.MyFruitObj).subscribe(res=>{
  
    alert("Success Adding Product ^_^");
  },error=>{

@@ -7,9 +7,9 @@
 
       <form #ProductData="ngForm" (ngSubmit)="SaveProduct(ProductData.value)">
 
-          <div class="form-group">
+          <div class="form-group" #idContentChild>
           <label for="Id">ID</label>
-          <input type="number"  readonly class="form-control" name="Id" [(ngModel)]="MyFruitObj.Id"/>
+          <input type="number"  #idViewChild readonly class="form-control" name="Id" [(ngModel)]="MyFruitObj.Id"/>
           </div>
 
 
