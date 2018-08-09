@@ -8,6 +8,7 @@ import { Component, OnInit,
 import{HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { FruitsService } from '../Services/fruits.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-all-fruits',
@@ -25,9 +26,16 @@ AfterViewInit,
 AfterViewChecked,
 OnDestroy
 {
-  public Fruits:Array<any>=[]
-  constructor(private FruitsServiceObj:FruitsService) { 
-  
+  public Fruits:Array<any>=[];
+  isCompleted=false;
+  constructor(private FruitsServiceObj:FruitsService,private activatedRoute:ActivatedRoute) {  
+
+
+/*let AdminData=activatedRoute.snapshot.params["AdminData"];
+if(AdminData!==undefined){
+  AdminData=JSON.parse(AdminData);
+}*/
+
   }
   
   ngOnInit() {
@@ -35,15 +43,35 @@ OnDestroy
   const ListProductPath=environment.listProductUrl;
   console.log(`ListProductPath is ${ListProductPath}`);
   
+  //try{}
   this.FruitsServiceObj.getAllFruits(ListProductPath).
        
       //  map((response) => response.json()).
-        subscribe( (data:Array<any>) => {
+        subscribe( 
+          (data:Array<any>) => {
+            
+            if(data.length>0){
+              this.isCompleted=true;
+              this.Fruits=data;
+            }
+           
+            console.log("Fruits is : ");
+            console.log(this.Fruits);
           
-        //this.displaydata(data);
-        this.Fruits=data;
+          },
+       
+          (error)=>{ 
+            console.log("Fruits is : ");
+            console.log(this.Fruits);
+            console.log("Error is :");
+            console.log(error);
+            
+          }
+      
+          
         
-        })
+        
+        )
   }
     
     

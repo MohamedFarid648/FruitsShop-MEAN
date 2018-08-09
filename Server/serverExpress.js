@@ -196,3 +196,45 @@ MyApp.use(bodyParser.json());
 			res.send(JSON.stringify(product));	
 			res.end();
 		})
+
+
+
+
+	//5
+	MyApp.post("/adminlogin",function(req,res){
+
+
+		debugger;
+		console.log("body.Email::"+req.body.email)
+		console.log("body.Password::"+req.body.password)
+
+		
+	
+	
+			//First:Get All data 
+		    let data= MyFile.readFileSync("./Admins.json");
+			MyJSONobj=JSON.parse(data);
+			let admin={}; 
+			let AdminFound=false;  
+			for(let i=0;i<MyJSONobj.length;i++){
+				 if(MyJSONobj[i].Email==req.body.email && MyJSONobj[i].Password==req.body.password)
+				    {
+						admin=MyJSONobj[i];
+						AdminFound=true;
+					}
+			}
+
+
+			console.log("Admin :");
+			console.log(admin);
+			if(AdminFound){
+			       res.send(JSON.stringify(admin));	
+                
+			}else{
+				console.log("Admin not found")
+				res.send(JSON.stringify({ErrorFromServer:"Email or Password is invalid"}));
+			}
+
+			
+			res.end();
+		})

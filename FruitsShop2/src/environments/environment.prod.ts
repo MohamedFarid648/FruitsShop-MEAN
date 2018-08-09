@@ -4,6 +4,8 @@ export const environment = {
   listProductUrl:"http://localhost:5200/ListProducts",
   updateProductUrl:"http://localhost:5200/UpdateProduct/",
   deleteProductUrl:"http://localhost:5200/DeleteProduct/",
-  getProduct:"http://localhost:7000/getProduct/"
+  getProduct:"http://localhost:5200/getProduct/",
+  adminLogin:"http://localhost:5200/adminlogin/"
+
 
 };

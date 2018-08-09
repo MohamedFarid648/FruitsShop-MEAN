@@ -17,6 +17,8 @@ import { EditFruitComponent } from './edit-fruit/edit-fruit.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AllFruitsComponent } from './all-fruits/all-fruits.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -31,11 +33,15 @@ import { HttpClientModule } from '@angular/common/http';
     MyDirectiveDirective,
     EditFruitComponent,
     ErrorPageComponent,
-    AllFruitsComponent
+    AllFruitsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,HttpClientModule,
     RouterModule.forRoot([
+    {path:'Login',component:LoginComponent},
+    {path:'Register',component:RegisterComponent},
     {path:'ClientInfo',component:ClientInfoComponent},
     {path:'Fruits',component:AllFruitsComponent},
     {path:'EditFruit/:id',component:EditFruitComponent},
