@@ -1,8 +1,6 @@
-import {browser,by,element} from 'protractor';
+import {browser} from 'protractor';
 import { Login } from './login.po';
-import { AllFruits } from './fruits.pro';
-
-import { protractor } from 'protractor/built/ptor';
+import { protractor } from 'protractor';
 
 
 
