@@ -32,8 +32,8 @@ export class Login{
     
     signIn(email,pass){
 
-         this.UserEmail.sendKeys(email);
-         this.UserPassword.sendKeys(pass);
+         this.UserEmail.sendKeys(email);//write text on the input
+         this.UserPassword.sendKeys(pass);//write text on the input
          this.LoginButton.click();
          
     }
