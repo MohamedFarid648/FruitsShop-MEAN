@@ -18,7 +18,7 @@ let TestData:any[];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule],
+      imports:[HttpClientTestingModule],/*HttpClientTestingModule add HttpClient , HttpTestingController to providers  */
       providers: [FruitsService]
     });
 
@@ -60,13 +60,13 @@ let TestData:any[];
 
 
     },(error)=>{
-     console.log("Error from Get All Services :")
+     console.log("Error from Get All Fruits :")
       console.log(error);
     })
 
 
         
-      // FruitsService should have made one request to GET heroes from expected URL
+      // FruitsService should have made one request to GET fruits from expected URL
       /*The following `expectOne()` will match the request's URL.
         If no requests or multiple requests matched that URL
        `expectOne()` would throw.*/

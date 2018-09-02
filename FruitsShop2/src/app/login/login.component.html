@@ -27,7 +27,7 @@
                                 </div>
                                 <input type="email" class="form-control" 
                                 id="user_email" name="email" placeholder="example@gmail.com"  
-                                [(ngModel)]="UserEmail" #uemail="ngModel" required ><!-- Export NgModel into a local Variable uemail-->
+                                [(ngModel)]="UserAdmin.Email" #uemail="ngModel" required ><!-- Export NgModel into a local Variable uemail-->
                         
                                 
                               </div>
@@ -46,7 +46,7 @@
                                 </div>
                                 <input type="password" class="form-control"
                                   id="user_password" name="password" minlength="5"
-                                  [(ngModel)]="UserPassword" #upass="ngModel" required><!-- Export NgModel into a local Variable uemail-->
+                                  [(ngModel)]="UserAdmin.Password" #upass="ngModel" required><!-- Export NgModel into a local Variable uemail-->
                                 
                             </div>
 

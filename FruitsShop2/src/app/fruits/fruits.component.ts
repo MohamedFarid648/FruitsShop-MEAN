@@ -4,6 +4,7 @@ import {MyFruit} from '../Models/my-fruit';
 import { Component, OnInit } from '@angular/core';
 import{Http} from '@angular/http';
 import {environment} from '../../environments/environment';
+
 @Component({
   selector: 'app-fruits',
   templateUrl: './fruits.component.html',
@@ -12,18 +13,19 @@ import {environment} from '../../environments/environment';
 
 })
 export class FruitsComponent implements OnInit {
-
+//it has been replaced by AllFruits Component 
 IsLoaded=false;x:number;
 public Clients:Array<any> | null | undefined=[];
 public Fruits:Array<any>=[]
 public MyFruitObj:MyFruit;
 public IsUpdated:boolean=false;
 public Counter:number=0;
-constructor(private FruitsServiceObj:Http) { 
+constructor(private FruitsServiceObj:Http ) { 
 
 }
 
   ngOnInit() {
+    
 
 const ListProductPath=environment.listProductUrl;
 console.log(`ListProductPath is ${ListProductPath}`);

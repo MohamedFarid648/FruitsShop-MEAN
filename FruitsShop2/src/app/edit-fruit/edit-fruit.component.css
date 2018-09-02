@@ -1,5 +1,10 @@
 img{
 
     width:30%;
-    text-align: center
+}
+
+.img_div{
+    text-align: center;
+    margin-top: 10px;
+
 }

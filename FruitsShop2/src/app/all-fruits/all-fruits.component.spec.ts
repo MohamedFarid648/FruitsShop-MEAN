@@ -4,7 +4,7 @@ import { AllFruitsComponent } from './all-fruits.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { FruitsService } from '../Services/fruits.service';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -49,7 +49,12 @@ describe('AllFruitsComponent', () => {
       providers:[
       //  {provide:FruitsService,useValue:MockFruitsService},
         
-        HttpClient,HttpHandler,{provide:ActivatedRoute,useValue:fakeActivatedRoute}]
+        HttpClient,HttpHandler,{provide:ActivatedRoute,useValue:fakeActivatedRoute}
+      ,
+      {provide: Router,useClass: class { navigate = jasmine.createSpy("navigate"); }},
+
+      
+      ]
     })
     .compileComponents();
   }));

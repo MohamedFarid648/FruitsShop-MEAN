@@ -1,83 +1,83 @@
-<div class="row bg-primary">
-
-
-                        <div class="col-12" >
-                        <div class="col-6 col-md-3" *ngFor='let Fruit of Fruits;  index as i' style="float:left;">
-                              <img src='{{Fruit.imgUrl}}' class="img-fluid" width="100" height="100"/>
-                              <b [ngClass]="{'evenClass':i%2===0,'oddClass':i%2 !==0}" >{{Fruit.Name}} ||  {{Fruit.Id}}</b> <br>
-                              <div class="col-6 text-white">  
-                               <input type="button" class="btn btn-info" data-toggle="modal" 
-                               [attr.data-target]="'#MyUpdateForm'+i" value="Update"      [ngStyle]="{backgroundColor:i%2===0?'skyblue':'green'}"/>|
-                              <input type="button" class="btn btn-danger"  (click)="DeleteButton(Fruit.Id)"  
-                              value="Delete Buton"/>
-                             
-                              </div>
-                        
-                              <!-- </div>-->
-                            
-                              <div class="modal"  attr.id="MyUpdateForm{{i}}" tabindex="-1" role="dialog"> 
-                                    <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                                <!-- Header-->
-                                                <div class="modal-header">
-                                                      <h5 class="modal-title">{{Fruit.Name}}</h5>
-                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                      </button>
-                                                </div>
-
-                                                <!--Content-->
-                                                <div class="modal-body">
-                                                      <form #ProductData="ngForm" (ngSubmit)="SaveProduct(ProductData.value)">
-
-                                                            <div class="form-group">
-                                                            <label for="Id">ID</label>
-                                                            <input type="number"  readonly class="form-control" name="Id" [(ngModel)]="Fruit.Id"/>
-                                                            </div>
-
-
-                                                            <div class="form-group">
-                                                            <label for="Name">Name</label>
-                                                            <input type="text" class="form-control" name="Name"  [(ngModel)]="Fruit.Name"/>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                            <label for="Price">Price</label>
-                                                            <input type="number" class="form-control" name="Price" [(ngModel)]="Fruit.Price"/>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                            <label for="Quantity">Quantity</label>
-                                                            <input type="number" class="form-control" name="Quantity" [(ngModel)]="Fruit.Quantity"/>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                            <label for="Description">Description</label>
-                                                            <input type="text" class="form-control" name="Description" [(ngModel)]="Fruit.Description"/>
-                                                            </div>
-                                                      
-
-                                                            <input type="submit"  class="btn btn-primary">
-                                                            
-                                                            
-                                                            
-                                                            </form>
-                                                      <!--</div>-->
-
-                                                      <!--Footer-->
-                                                      <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                      </div>
-                                                </div>
+  
+  
+     <div class="row bg-primary">
+                              <div class="col-12" >
+                                    <div class="col-6 col-md-3" *ngFor='let Fruit of Fruits;  index as i' style="float:left;">
+                                          <img src='{{Fruit.imgUrl}}' class="img-fluid" width="100" height="100"/>
+                                          <b [ngClass]="{'evenClass':i%2===0,'oddClass':i%2 !==0}" >{{Fruit.Name}} ||  {{Fruit.Id}}</b> <br>
+                                          <div class="col-6 text-white">  
+                                          <input type="button" class="btn btn-info" data-toggle="modal" 
+                                          [attr.data-target]="'#MyUpdateForm'+i" value="Update"      [ngStyle]="{backgroundColor:i%2===0?'skyblue':'green'}"/>|
+                                          <input type="button" class="btn btn-danger"  (click)="DeleteButton(Fruit.Id)"  
+                                          value="Delete Buton"/>
+                                    
                                           </div>
-                                  </div>
+                                    
+                                          <!-- </div>-->
+                                    
+                                          <div class="modal"  attr.id="MyUpdateForm{{i}}" tabindex="-1" role="dialog"> 
+                                                <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                            <!-- Header-->
+                                                            <div class="modal-header">
+                                                                  <h5 class="modal-title">{{Fruit.Name}}</h5>
+                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                  </button>
+                                                            </div>
+
+                                                            <!--Content-->
+                                                            <div class="modal-body">
+                                                                  <form #ProductData="ngForm" (ngSubmit)="SaveProduct(ProductData.value)">
+
+                                                                        <div class="form-group">
+                                                                        <label for="Id">ID</label>
+                                                                        <input type="number"  readonly class="form-control" name="Id" [(ngModel)]="Fruit.Id"/>
+                                                                        </div>
+
+
+                                                                        <div class="form-group">
+                                                                        <label for="Name">Name</label>
+                                                                        <input type="text" class="form-control" name="Name"  [(ngModel)]="Fruit.Name"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                        <label for="Price">Price</label>
+                                                                        <input type="number" class="form-control" name="Price" [(ngModel)]="Fruit.Price"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                        <label for="Quantity">Quantity</label>
+                                                                        <input type="number" class="form-control" name="Quantity" [(ngModel)]="Fruit.Quantity"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                        <label for="Description">Description</label>
+                                                                        <input type="text" class="form-control" name="Description" [(ngModel)]="Fruit.Description"/>
+                                                                        </div>
+                                                                  
+
+                                                                        <input type="submit"  class="btn btn-primary">
+                                                                        
+                                                                        
+                                                                        
+                                                                        </form>
+                                                                  <!--</div>-->
+
+                                                                  <!--Footer-->
+                                                                  <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                  </div>
+                                                            </div>
+                                                      </div>
+                                          </div>
+                                          </div>
+
+                                          
+                                    </div>
                               </div>
 
-                              
-                   </div>
-            </div>
-
-</div>
+      </div>
 
 
 

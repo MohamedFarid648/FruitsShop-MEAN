@@ -8,8 +8,8 @@ import { Component, OnInit,
 import{HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { FruitsService } from '../Services/fruits.service';
-import { ActivatedRoute } from '@angular/router';
-
+import { LocalStorageService } from '../Services/local-storage.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-all-fruits',
   templateUrl: './all-fruits.component.html',
@@ -28,14 +28,21 @@ OnDestroy
 {
   public Fruits:Array<any>=[];
   isCompleted=false;
-  constructor(private FruitsServiceObj:FruitsService,private activatedRoute:ActivatedRoute) {  
+  constructor(private FruitsServiceObj:FruitsService,private activatedRoute:ActivatedRoute,private localStorageService:LocalStorageService,private router:Router) {  
 
 
-/*let AdminData=activatedRoute.snapshot.params["AdminData"];
-if(AdminData!==undefined){
-  AdminData=JSON.parse(AdminData);
-}*/
-
+      /*let AdminData=activatedRoute.snapshot.params["AdminData"];
+      if(AdminData!==undefined){
+        AdminData=JSON.parse(AdminData);
+      }*/
+      
+     /* let userLocalStorage=localStorageService.readObject("UserInfo");
+      if(!userLocalStorage){
+       this.router.navigate(["Login"], {skipLocationChange:false,
+         //queryParams: this.activatedRoute.snapshot.queryParams,
+         //fragment: this.activatedRoute.snapshot.fragment,
+         });
+      }*/
   }
   
   ngOnInit() {

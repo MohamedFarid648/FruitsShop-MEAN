@@ -1,5 +1,5 @@
 export class Admin{
 
-constructor(Email:string,Password:string,User_Name:string,Id:number,Phone:string){}
+constructor(public Email:string,public Password:string,public User_Name:string,public Id:number,public Phone:string){}
 
 }

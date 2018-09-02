@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{RouterModule} from '@angular/router';
+import{RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import{HttpModule} from '@angular/http';
 
@@ -20,7 +20,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+const appRoutes:Routes=[
+  {path:'Login',component:LoginComponent},
+  {path:'Register',component:RegisterComponent},
+  {path:'ClientInfo',component:ClientInfoComponent},
+  {path:'Fruits',component:AllFruitsComponent},
+  {path:'EditFruit/:id',component:EditFruitComponent},
+  {path:'Clients',component:ClientsComponent},
+  {path:'AddProduct',component:AddProductComponent},
+  {path:'',redirectTo:"/Fruits",pathMatch:"full"},
+  {path:'**',component:ErrorPageComponent},//this should be last one because it matches every path
 
+
+  
+  // {path:'**',component:AppComponent}
+  
+  ];
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,22 +54,7 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,HttpClientModule,
-    RouterModule.forRoot([
-    {path:'Login',component:LoginComponent},
-    {path:'Register',component:RegisterComponent},
-    {path:'ClientInfo',component:ClientInfoComponent},
-    {path:'Fruits',component:AllFruitsComponent},
-    {path:'EditFruit/:id',component:EditFruitComponent},
-    {path:'Clients',component:ClientsComponent},
-    {path:'AddProduct',component:AddProductComponent},
-    {path:'',redirectTo:"/Fruits",pathMatch:"full"},
-    {path:'**',component:ErrorPageComponent},//this should be last one because it matches every path
-
-
-    
-    // {path:'**',component:AppComponent}
-    
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
