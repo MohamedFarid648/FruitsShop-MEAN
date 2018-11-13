@@ -16,25 +16,25 @@ export class LoginComponent implements OnInit, OnChanges {
   UserPassword = ''; isPasswordValid = true;
   UserAdmin: Admin = new Admin('', '', '', 0, '');
 
-  constructor(private loginService: LoginService, 
+  constructor(private loginService: LoginService,
     private router: Router, private activatedRoute: ActivatedRoute,
-     private localStorageService: LocalStorageService) {
+    private localStorageService: LocalStorageService) {
 
-       if (this.loginService.isLoggedIn) {
-          const redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '';
-          this.router.navigate([redirect]);
-        }
+    if (this.loginService.isLoggedIn) {
+      const redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '';
+      this.router.navigate([redirect]);
+    }
 
-   /* let emailLocalStorage = localStorageService.readText('Email');
-    let userLocalStorage = localStorageService.readObject('UserInfo');
-
-    if (userLocalStorage) {
-      this.router.navigate(['Fruits', { AdminData: JSON.stringify(userLocalStorage) }], {
-        skipLocationChange: true,
-        //queryParams: this.activatedRoute.snapshot.queryParams,
-        //fragment: this.activatedRoute.snapshot.fragment,
-      })
-    }*/
+    /* let emailLocalStorage = localStorageService.readText('Email');
+     let userLocalStorage = localStorageService.readObject('UserInfo');
+ 
+     if (userLocalStorage) {
+       this.router.navigate(['Fruits', { AdminData: JSON.stringify(userLocalStorage) }], {
+         skipLocationChange: true,
+         //queryParams: this.activatedRoute.snapshot.queryParams,
+         //fragment: this.activatedRoute.snapshot.fragment,
+       })
+     }*/
   }
 
   ngOnInit() {
@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit, OnChanges {
 
 
   loginUser() {
-
 
     if (this.UserAdmin.Password === '' || this.UserAdmin.Password.length < 5) {
       this.isPasswordValid = false;
@@ -62,7 +61,6 @@ export class LoginComponent implements OnInit, OnChanges {
     if (this.isEmailValid && this.isPasswordValid) {
       const path = environment.adminLogin;
       this.loginService.signIn(path, this.UserAdmin.Email, this.UserAdmin.Password).subscribe(() => {
-
         if (this.loginService.isLoggedIn) {
           const redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '';
           this.router.navigate([redirect]);

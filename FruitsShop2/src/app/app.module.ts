@@ -20,10 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth/auth.guard';
+import { LogoutComponent } from './logout/logout.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/Fruits', pathMatch: 'full' , canActivate: [AuthGuard]},
   {path: 'Login', component: LoginComponent},
+  {path: 'Logout', component: LogoutComponent},
+
   {path: 'Register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'ClientInfo', component: ClientInfoComponent , canActivate: [AuthGuard]},
   {path: 'Fruits',component: AllFruitsComponent , canActivate: [AuthGuard]},
@@ -51,7 +54,8 @@ const appRoutes: Routes = [
     ErrorPageComponent,
     AllFruitsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,HttpClientModule,

@@ -27,10 +27,11 @@ export class LoginService {
       .pipe(map(data => {
         console.log('data from pipe map');
         console.log(data);
-
         if (!data['ErrorFromServer']) {
           this.isLoggedIn = true;
           this.localStorageService.writeObject('UserInfo', data);
+        } else {
+          alert(data['ErrorFromServer']);
         }
 
       }));
