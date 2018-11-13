@@ -19,17 +19,18 @@ import { AllFruitsComponent } from './all-fruits/all-fruits.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth/auth.guard';
 
-const appRoutes:Routes=[
-  {path:'Login',component:LoginComponent},
-  {path:'Register',component:RegisterComponent},
-  {path:'ClientInfo',component:ClientInfoComponent},
-  {path:'Fruits',component:AllFruitsComponent},
-  {path:'EditFruit/:id',component:EditFruitComponent},
-  {path:'Clients',component:ClientsComponent},
-  {path:'AddProduct',component:AddProductComponent},
-  {path:'',redirectTo:"/Fruits",pathMatch:"full"},
-  {path:'**',component:ErrorPageComponent},//this should be last one because it matches every path
+const appRoutes: Routes = [
+  {path: '', redirectTo: '/Fruits', pathMatch: 'full' , canActivate: [AuthGuard]},
+  {path: 'Login', component: LoginComponent},
+  {path: 'Register', component: RegisterComponent, canActivate: [AuthGuard]},
+  {path: 'ClientInfo', component: ClientInfoComponent , canActivate: [AuthGuard]},
+  {path: 'Fruits',component: AllFruitsComponent , canActivate: [AuthGuard]},
+  {path: 'EditFruit/:id', component: EditFruitComponent , canActivate: [AuthGuard]},
+  {path: 'Clients', component: ClientsComponent , canActivate: [AuthGuard]},
+  {path: 'AddProduct', component: AddProductComponent , canActivate: [AuthGuard]},
+  {path: '**', component: ErrorPageComponent , canActivate: [AuthGuard]}, // this should be last one because it matches every path
 
 
   
