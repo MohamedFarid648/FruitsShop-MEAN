@@ -1,8 +1,9 @@
+import { JwtInterceptor } from './JWT/jwt_interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import{HttpModule} from '@angular/http';
+import {HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FooterComponentComponent } from './footer-component/footer-component.component';
@@ -16,11 +17,13 @@ import { MyDirectiveDirective } from './Directives/my-directive.directive';
 import { EditFruitComponent } from './edit-fruit/edit-fruit.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AllFruitsComponent } from './all-fruits/all-fruits.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LogoutComponent } from './logout/logout.component';
+import { ErrorInterceptor } from './JWT/error.interceptor';
+
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/Fruits', pathMatch: 'full' , canActivate: [AuthGuard]},
@@ -61,7 +64,14 @@ const appRoutes: Routes = [
     BrowserModule,FormsModule,HttpModule,HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
